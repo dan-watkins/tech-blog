@@ -23,4 +23,16 @@ router.get("/", async (req, res) => {
   }
 });
 
+//get /blog/:id
+
+//get /profile withauth
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/profile');
+    return;
+  }
+  res.render('login');
+});
+
 module.exports = router;
