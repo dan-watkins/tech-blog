@@ -12,7 +12,7 @@
             {{#if loggedIn}}
             <!-- might need to update these refs to the correct place -->
             <a href="/profile">Profile</a>
-            <button>Logout</button>
+            <button class="no-button" id="logout">Logout</button>
             {{else}}
             <a href="/login">Login</a>
             {{/if}}
@@ -24,5 +24,8 @@
     <footer>
         
     </footer>
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
