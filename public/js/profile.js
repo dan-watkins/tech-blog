@@ -1,14 +1,13 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
+  
+  const name = document.getElementById("blog-post").value.trim();
+  const description = document.getElementById("blog-desc").value.trim();
 
-  const name = document.querySelector("#user-name").value.trim();
-  const blogName = document.querySelector("#blog-name").value.trim();
-  const description = document.querySelector("#blog-desc").value.trim();
-
-  if (name && needed_funding && description) {
+  if (name && description) {
     const response = await fetch(`/api/blogs`, {
       method: "POST",
-      body: JSON.stringify({ name, blogName, description }),
+      body: JSON.stringify({ name, description }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -17,7 +16,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/profile");
     } else {
-      alert("Failed to create project");
+      alert("Failed to create blog");
     }
   }
 };
