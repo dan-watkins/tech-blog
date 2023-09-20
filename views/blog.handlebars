@@ -2,7 +2,10 @@
   <h2>{{name}}</h2>
   <p>{{description}}</p>
   <p>Created by {{user.name}}</p>
-  <p>
+  {{#each comments as |comment|}}
+    <div>
+      <p>{{comment.description}}</p>
+    </div>
+    {{/each}}
     <button class="btn btn-primary">Comment on this post!</button>
-  </p>
 </div>
