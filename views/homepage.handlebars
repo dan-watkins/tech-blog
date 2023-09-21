@@ -1,6 +1,14 @@
 {{#each blogs as |blog| }}
-<div>
-    <h2><a href="/blog/{{blog.id}}">{{blog.name}}</a> by {{user.name}}</h2>
-    <p>{{blog.description}}</p>
+<div class="container">
+    <div class="row justify-content-center">
+    <div class="col-md-4">
+    <h2 class="text-center"><a href="/blog/{{blog.id}}">{{blog.name}}</a> by {{user.name}}</h2>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-md-6">
+    <p class="text-center">{{blog.description}}</p>
+    </div>
+    </div>
 </div>
 {{/each}}
