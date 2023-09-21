@@ -4,36 +4,36 @@ const withAuth = require("../../utils/auth");
 
 // blog_id: this.blog_id not working, comments are being added w/o blogid association //
 router.post("/", withAuth, async (req, res) => {
-    try {
-        const newComment = await Comment.create({
-            ...req.body,
-            user_id: req.session.user_id,
-            blog_id: this.blog_id,
-        });
+  try {
+    const newComment = await Comment.create({
+      ...req.body,
+      user_id: req.session.user_id,
+      blog_id: req.body.blog_id,
+    });
 
-        res.status(200).json(newComment);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.delete("/:id", withAuth, async (req, res) => {
-    try {
-        const commentData = await Comment.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-                blog_id: this.blog_id,
-            },
-        });
-        if (!commentData) {
-            res.status(404).json({ message: `No comment found with this id!`});
-            return;
-        }
-        res.status(200).json(commentData);
-    } catch {
-        res.status(500).json(err);
+  try {
+    const commentData = await Comment.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+        blog_id: this.blog_id,
+      },
+    });
+    if (!commentData) {
+      res.status(404).json({ message: `No comment found with this id!` });
+      return;
     }
+    res.status(200).json(commentData);
+  } catch {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
