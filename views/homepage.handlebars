@@ -1,6 +1,6 @@
 {{#each blogs as |blog| }}
 <div>
-    <h2>{{blog.name}} by {{user.name}}</h2>
+    <h2><a href="/blog/{{blog.id}}">{{blog.name}}</a> by {{user.name}}</h2>
     <p>{{blog.description}}</p>
 </div>
 {{/each}}
