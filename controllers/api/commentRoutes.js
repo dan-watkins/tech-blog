@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// These routes will probably require updating in order to use the appropriate blogId //
+// blog_id: this.blog_id not working, comments are being added w/o blogid association //
 router.post("/", withAuth, async (req, res) => {
     try {
         const newComment = await Comment.create({
