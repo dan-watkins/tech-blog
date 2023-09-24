@@ -6,7 +6,7 @@
 
 My version of a social media platform, which allows users to sign up, log in, create blog posts, and comment on other users' posts as well. Dashboard shows all posts across every user on the platform, Profile shows posts you've specifically created, and everyone has the ability to comment on any post.
 
-URL: https://polar-shelf-42392-85cf4f6ec4e6.herokuapp.com/
+![tech-blog](./public/assets/images/tech-blog.png)
 
 ## Table of Contents
 
